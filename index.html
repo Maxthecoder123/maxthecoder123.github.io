@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max The Coder</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#home">
+                <img id="logo" src="logo.jpg" alt="Logo">
+            </a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="navbuttons">
+            <button>Projects</button>
+        </div>
+    </header>
+
+    <fieldset class="home">
+        <div class="typing">
+            <h1 aria-label="Hi! I'm a developer">
+                Hi! I'm a&nbsp;<span class="typewriter"></span>
+            </h1>
+        </div>
+    </fieldset>
+    <fieldset class="desc">
+        <p>I'm Maximilian Misiurski and I love to code in many languages 
+            such as <strong>Python </strong>,<strong> HTML </strong>and <strong>CSS</strong>. 
+            Some of my projects were made with a little help but most were made with no
+            help at all. I also constructed this website too. Besides from coding
+            in my spare time, I love to play on the piano and guitar (both electric,
+            acoustic and bass). I have great communication skills and I am very
+            flexible when it comes to many things. Here is my cv below:</p>
+    </fieldset>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            header.classList.add('show');
+        });
+    </script>
+</body>
+</html>
