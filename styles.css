@@ -72,6 +72,9 @@ header {
     .navbar up li a:last-of-child {
         padding-right: 10px;
     }
+    h1.topbit {
+        padding-left: 25px;
+    }
 }
 
 .navbar ul li a::after {
