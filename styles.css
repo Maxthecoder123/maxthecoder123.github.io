@@ -8,10 +8,10 @@
 body {
     background-color: #122529;
     display: flex;
-    flex-direction: column; /* To allow stacking of elements vertically */
+    flex-direction: column;
     justify-content: center;
     height: 100vh;
-    margin: 0;
+    padding-top: 100px; /* Matches the navbar height */
 }
 
 header {
@@ -22,22 +22,18 @@ header {
     background-color: #232941;
     border-bottom: 3px solid #31eeb9;
     position: fixed;
-    top: -100px; /* Initially hidden */
+    top: 0; /* Keep the header fixed at the top */
     width: 100%;
     z-index: 10;
-    transition: top 0.5s ease-in-out;
-}
-
-header.show {
-    top: 0; /* Slide into view */
+    height: 100px; /* Ensure this matches the padding-top value in body */
 }
 
 .logo {
-    flex: 1; 
+    flex: 1;
 }
 
 .logo img {
-    width: 70px; 
+    width: 70px;
     height: auto;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -50,7 +46,6 @@ header.show {
     flex: 1;
     display: flex;
     justify-content: center;
-    transition: top 0.5s ease-in-out;
 }
 
 .navbar ul {
@@ -64,8 +59,15 @@ header.show {
     text-decoration: none;
     color: #31eeb9;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 3vw;
     transition: color 0.3s ease;
+    border: none; /* Ensure no borders */
+}
+
+@media only screen and (min-width: 601px) {
+    .navbar ul li a {
+        font-size: 25px;
+    }
 }
 
 .navbar ul li a::after {
@@ -98,7 +100,7 @@ header.show {
     padding: 10px 20px;
     background-color: #31eeb9;
     color: #000;
-    border: none;
+    border: none; /* Ensure no borders */
     cursor: pointer;
     font-size: 15px;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -109,14 +111,27 @@ header.show {
     transform: scale(1.1);
 }
 
-h1 {
-    padding-top: 7vmin;
+h1.topbit {
+    padding-top: 10vw;
     font-size: 7vmin;
     color: #03b885;
     text-align: left;
-    font-family: Lato, sans-serif;
+    font-family: "Afacad Flux", sans-serif;
     font-weight: 700;
     margin: 1rem 0 1rem 2rem;
+    padding-left: 100px;
+}
+
+/* Title Box */
+.title-box {
+    max-width: 90vw;
+    margin: 0 auto; /* Center the box */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 10px; /* Rounded corners */
+    position: relative;
+    top: 100px; /* Push it down below the navbar */
+    z-index: 1; /* Ensure it sits above other elements */
 }
 
 /* Typewriter effect */
@@ -129,7 +144,7 @@ h1 {
     5.6977%, 21.6512% { content: "devel"; }
     6.8372%, 20.5116% { content: "develo"; }
     7.9767%, 19.3721% { content: "develop"; }
-    9.1163%, 18.2326% { content: "develope"; }
+    9.1163%, 18.2326% { content: "deelope"; }
     10.2558%, 17.0930% { content: "developer."; }
     30.7674%, 51.2791% { content: ""; }
     31.9070%, 50.1395% { content: "c"; }
@@ -195,18 +210,59 @@ h1 {
 fieldset.home {
     display: flex;
     flex-direction: row;
-    margin-top: -450px;
+    margin-top: -30vmin;
     border: none;
 }
 
 fieldset.desc {
-    margin-left: 50%;
-    border: none;
-    text-align: right;
-    padding-right: 20px;
+    border: none; /* Ensure no borders */
+    text-align: left;
+    max-width: 90vw;
+    padding-left: 135px;
+    margin-bottom: 0; /* No space between desc and svg */
 }
 
-p {
+p.description {
+    padding-top: 30px;
     color: #31eeb9;
+    max-width: 500px;
     font-size: 2.5vmin;
+}
+
+svg {
+    width: 100vw; /* Stretches the SVG across the viewport width */
+    height: auto; /* Maintain aspect ratio */
+    position: fixed; /* Fix the SVG in position */
+    bottom: 0; /* Align it to the bottom */
+    left: 0; /* Align it to the left */
+    display: block; /* Removes any potential gaps */
+    object-fit: cover; /* Ensures it covers the width without distortion */
+    margin: 0;
+    padding: 0;
+}
+
+div.section2 {
+    display: flex;
+    justify-content: center; /* Centers h1 horizontally */
+    align-items: center; /* Centers vertically if height needed */
+    background-color: #31eeb9;
+    color: black;
+    width: 100%;
+}
+
+div.section2 p {
+    font-size: 20px;
+    padding: 10px;
+}
+
+/* Styles for mobile */
+@media (max-width: 600px) {
+    .title-box {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+    
+    svg {
+        height: 150px; /* Limit height further if needed */
+        position: fixed; /* Ensure it stays fixed */
+    }
 }
