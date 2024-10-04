@@ -67,13 +67,6 @@ header {
 @media only screen and (min-width: 601px) {
     .navbar ul li a {
         font-size: 25px;
-        gap: 30px;
-    }
-    .navbar up li a:last-of-child {
-        padding-right: 10px;
-    }
-    h1.topbit {
-        padding-left: 25px;
     }
 }
 
@@ -267,10 +260,31 @@ div.section2 p {
     .title-box {
         padding: 10px; /* Adjust padding for smaller screens */
     }
+
     
     svg {
         height: 150px; /* Limit height further if needed */
         position: fixed; /* Ensure it stays fixed */
     }
-}
 
+    fieldset.home, fieldset.desc {
+        margin-left: -100px;
+        
+    }
+
+    fieldset.home {
+        margin-top: -450px;
+    }
+
+    p.description {
+        font-size: 15px;
+        margin-right: -100px;
+    }
+
+    .navbar ul {
+        gap: 35px;
+    }
+    .navbar ul:last-child {
+        margin-right: 15px;
+    }
+}
