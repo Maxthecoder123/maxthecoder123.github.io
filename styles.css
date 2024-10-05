@@ -408,22 +408,22 @@ a {
 
 /* Specific background images */
 .card:nth-child(1):before {
-    background-image: url('project-images/Project1.png');
+    background-image: url('Project1.png');
 }
 .card:nth-child(2):before {
-    background-image: url('project-images/Project2.png');
+    background-image: url('Project2.png');
 }
 .card:nth-child(3):before {
-    background-image: url('project-images/Project3.png');
+    background-image: url('Project3.png');
 }
 .card:nth-child(4):before {
-    background-image: url('project-images/Project4.png');
+    background-image: url('Project4.png');
 }
 .card:nth-child(5):before {
-    background-image: url('project-images/Project5.png');
+    background-image: url('Project5.png');
 }
 .card:nth-child(6):before {
-    background-image: url('project-images/Project6.png');
+    background-image: url('Project6.png');
 }
 
 .content {
