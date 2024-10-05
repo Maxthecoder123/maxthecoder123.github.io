@@ -679,3 +679,5 @@ body.loaded {
     transform: translateY(-50%); /* Adjust vertically */
     animation: float 2s ease-in-out infinite;
 }
+
+//End of code
