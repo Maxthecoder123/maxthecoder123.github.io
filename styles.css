@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Afacad Flux", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -210,7 +211,7 @@ h1.topbit {
 fieldset.home {
     display: flex;
     flex-direction: row;
-    margin-top: -30vmin;
+    margin-top: 270vmin;
     border: none;
 }
 
@@ -218,6 +219,7 @@ fieldset.desc {
     border: none; /* Ensure no borders */
     text-align: left;
     max-width: 90vw;
+    min-width: 650px;
     padding-left: 135px;
     margin-bottom: 0; /* No space between desc and svg */
 }
@@ -229,20 +231,9 @@ p.description {
     font-size: 2.5vmin;
 }
 
-svg {
-    width: 100vw; /* Stretches the SVG across the viewport width */
-    height: auto; /* Maintain aspect ratio */
-    position: fixed; /* Fix the SVG in position */
-    bottom: 0; /* Align it to the bottom */
-    left: 0; /* Align it to the left */
-    display: block; /* Removes any potential gaps */
-    object-fit: cover; /* Ensures it covers the width without distortion */
-    margin: 0;
-    padding: 0;
-}
-
 div.section2 {
     display: flex;
+    flex-direction: column;
     justify-content: center; /* Centers h1 horizontally */
     align-items: center; /* Centers vertically if height needed */
     background-color: #31eeb9;
@@ -253,38 +244,438 @@ div.section2 {
 div.section2 p {
     font-size: 20px;
     padding: 10px;
+    max-width: 900px;
+    text-align: center;
 }
-
 /* Styles for mobile */
 @media (max-width: 600px) {
+
+    body, html {
+        overflow-x: hidden;
+    }
     .title-box {
         padding: 10px; /* Adjust padding for smaller screens */
     }
 
-    
-    svg {
-        height: 150px; /* Limit height further if needed */
-        position: fixed; /* Ensure it stays fixed */
-    }
-
     fieldset.home, fieldset.desc {
         margin-left: -100px;
-        
     }
 
     fieldset.home {
-        margin-top: -450px;
+        margin-top: 4720px;
     }
 
     p.description {
         font-size: 15px;
-        margin-right: -100px;
+        margin-right: -20px;
     }
 
-    .navbar ul {
-        gap: 35px;
+    p.description {
+        max-width: 300px;
     }
-    .navbar ul:last-child {
-        margin-right: 15px;
+
+    h1.topbit {
+        margin-top: 250px;
     }
+
+    div.section2 p {
+        font-size: 15px;
+    }
+
+    .navbuttons {
+        display: none;
+    }
+
+    nav {
+        margin-right: 4vw;
+    }
+}
+
+
+.svg-container {
+    text-align: center; /* centers both the SVG and the text */
+}
+  
+.svg-container p {
+    margin-top: 10px; /* space between the SVG and the text */
+    font-size: 18px; /* adjust size as needed */
+}
+
+.projects-title {
+    padding-top: 50px;
+    font-size: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.card-section {
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.page-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Fit cards to the grid */
+    gap: 20px; /* Space between cards */
+    max-width: 1200px; /* Max width for the container */
+    padding: 0 10px; /* Padding to prevent cards touching edges */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .page-content {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards for medium screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .page-content {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards for smaller screens */
+    }
+
+    fieldset.home {
+        margin-top: 2020px;
+    }
+
+    .robot-image {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-content {
+        grid-template-columns: 1fr; /* 1 card for very small screens */
+    }
+    fieldset.home {
+        margin-top: 2820px;
+    }
+
+    .robot-image {
+        display: none;
+    }
+}
+
+.card {
+    position: relative; /* Ensure relative positioning */
+    overflow: hidden;
+    background-color: #272727;
+    color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    height: 400px; /* Fixed height */
+    width: 350px; /* Fixed width */
+    padding: 20px; /* Add padding for spacing */
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.4s ease; /* Increased duration */
+    z-index: 1; /* Ensure overlay is above the background */
+}
+
+.card:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0; /* Background image behind overlay */
+    transition: background 0.4s ease;
+}
+
+/* Specific background images */
+.card:nth-child(1):before {
+    background-image: url('project-images/Project1.png');
+}
+.card:nth-child(2):before {
+    background-image: url('project-images/Project2.png');
+}
+.card:nth-child(3):before {
+    background-image: url('project-images/Project3.png');
+}
+.card:nth-child(4):before {
+    background-image: url('project-images/Project4.png');
+}
+.card:nth-child(5):before {
+    background-image: url('project-images/Project5.png');
+}
+.card:nth-child(6):before {
+    background-image: url('project-images/Project6.png');
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content is above the overlay */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-start; /* Align content to the start */
+    align-items: center; /* Center content horizontally */
+    height: 100%; /* Take full height of the card */
+    text-align: center; /* Center align text */
+}
+
+.title {
+    font-size: clamp(20px, 5vw, 30px); /* Responsive font size */
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 2; /* Ensure it's above the background */
+    color: white;
+}
+
+.copy {
+    font-size: 17px; /* Responsive font size */
+    line-height: 1.4;
+    margin: 10px 0; /* Space above and below */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.4s ease;
+}
+
+.card:hover .copy {
+    opacity: 1; /* Show copy text on hover */
+}
+
+/* Button styles */
+.btn {
+    padding: 10px 20px; /* Keep button padding */
+    font-size: 17px; /* Keep button font size */
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #31eeb9; /* Black background */
+    color: black; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.6s ease, opacity 0.6s ease, box-shadow 0.6s ease; /* Increased duration */
+    position: absolute;
+    bottom: 20px; /* Position above the bottom */
+    width: auto; /* Set to auto for the button */
+    max-width: 100px; /* Maximum button width */
+    min-width: 80px; /* Minimum button width */
+    box-shadow: 0 0 5px #232941, 0 0 10px #232941; /* Blue glow effect */
+    opacity: 0; /* Initially hidden */
+}
+
+.btn-left {
+    left: 30%; /* Position on the left */
+    transform: translateX(-50%); /* Center it relative to left */
+}
+
+.btn-right {
+    right: 30%; /* Position on the right */
+    transform: translateX(50%); /* Center it relative to right */
+}
+
+.card:hover .btn-left,
+.card:hover .btn-right {
+    bottom: 20px; /* Move into view on hover */
+    opacity: 1; /* Show buttons on hover */
+}
+
+.btn:hover {
+    background-color: #232941;
+    color: white;
+}
+
+/* Add space between buttons */
+.btn-left {
+    margin-right: 10px; /* Space between buttons */
+}
+
+.btn-right {
+    margin-left: 10px; /* Space between buttons */
+}
+
+.see-all {
+    background-color: #232941;
+    width: 450px;
+    color: white;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 50px;
+    font-size: 20px;
+    margin-bottom: 50px;
+    transition: all 0.3s ease;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+.see-all:hover {
+    transform: scale(1.1);
+    background-color: #374166;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.section3 {
+    text-align: center; /* Center all text inside this section */
+}
+
+.about-me-title {
+    color: white;
+    font-size: 38px;
+    padding-top: 50px;
+}
+
+.about-me-desc {
+    color: white;
+    font-size: 18px;
+}
+
+.about-me {
+    margin: 50px 20px; /* Shorthand for top/bottom and left/right margins */
+    max-width: 800px;
+    margin-left: auto; /* Center alignment */
+    margin-right: auto; /* Center alignment */
+    padding: 0 20px;
+    font-size: 2.2vw;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translatey(0);
+    }
+    50% {
+        transform: translatey(-10px);
+    }
+}
+
+.text {
+    color: #31eeb9;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #232941; /* Match the navbar background */
+    padding: 20px;
+    color: #31eeb9; /* Match the navbar text color */
+    position: relative; /* Ensures footer is at the end of content */
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    text-align: center;
+    max-width: 1000px; /* Optional: Limit width */
+}
+
+.footer-content p {
+    margin: 0; /* Remove default margin */
+    font-size: 18px; /* Adjust size as needed */
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between links */
+    margin-top: 20px; /* Space above links */
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #31eeb9; /* Match the navbar text color */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.footer-links a:hover {
+    color: #03b885; /* Change color on hover */
+}
+
+.contact-info {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between items */
+}
+
+.contact-info div {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+}
+
+.contact-info i {
+    font-size: 20px; /* Adjust icon size */
+}
+
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Change translateY value for different effects */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-animation {
+    opacity: 0; /* Initial state is invisible */
+    animation: fadeIn 0.5s forwards; /* Animation on load */
+}
+
+/* Additional styles for elements that are scrolled into view */
+.scroll-animation.visible {
+    animation: fadeIn 0.5s forwards; /* Animation when the element becomes visible */
+}
+
+.robot-image {
+    width: 500px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align with text */
+    margin-left: 10px; /* Space between text and image */
+    position: absolute; /* Fix position of image */
+    left: calc(50% + 10px); /* Adjust as needed */
+    transform: translateX(-50%); /* Center the image */
+    top: 50%; /* Center vertically with respect to the h1 */
+    transform: translateY(-50%); /* Adjust vertically */
+    animation: float 2s ease-in-out infinite;
 }
