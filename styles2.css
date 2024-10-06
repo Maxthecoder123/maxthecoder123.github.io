@@ -1,0 +1,238 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #232941;
+    border-bottom: 3px solid #31eeb9;
+    position: fixed;
+    top: 0; /* Keep the header fixed at the top */
+    width: 100%;
+    z-index: 10;
+    height: 100px; /* Ensure this matches the padding-top value in body */
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo img {
+    width: 70px;
+    height: auto;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.4);
+}
+
+.navbar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    gap: 50px;
+}
+
+.navbar ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #31eeb9;
+    font-weight: bold;
+    font-size: 3vw;
+    transition: color 0.3s ease;
+    border: none; /* Ensure no borders */
+}
+
+@media only screen and (min-width: 601px) {
+    .navbar ul li a {
+        font-size: 25px;
+    }
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #31eeb9;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #03b885;
+}
+
+.navbar ul li a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.navbuttons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbuttons button {
+    padding: 10px 20px;
+    background-color: #31eeb9;
+    color: #000;
+    border: none; /* Ensure no borders */
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbuttons button:hover {
+    background-color: #03b885;
+    transform: scale(1.1);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+body {
+    background-color: #122529;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+    grid-gap: 40px;
+    padding: 60px 0;
+}
+
+.text--medium {
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #ecf0f1;
+}
+
+.cards {
+    grid-column: 2 / span 12;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(auto, 60px));
+    grid-gap: 40px;
+}
+
+.card {
+    grid-column-end: span 4;
+    display: flex;
+    flex-direction: column;
+    background-color: #232941;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card__image-container {
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card__image-container img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card__content {
+    padding: 20px;
+}
+
+.card__title {
+    margin-bottom: 20px;
+}
+
+.card__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure content is spaced out */
+}
+
+.card__price {
+    display: inline-block;
+    background-color: #31eeb9;
+    border-radius: 20px;
+    color: black;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card__price:hover {
+    background-color: #03b885;
+    transform: scale(1.1);
+}
+
+.card a.button {
+    text-decoration: none;
+}
+
+.card__info p {
+    margin: 0; /* Remove default margin */
+}
+
+@media only screen and (max-width: 1000px) {
+    .card {
+        grid-column-end: span 6;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    main {
+        grid-gap: 20px;
+    }
+    .card {
+        grid-column-end: span 12;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    main {
+        grid-template-columns: 10px repeat(6, 1fr) 10px;
+        grid-gap: 10px;
+    }
+    .cards {
+        grid-column: 2 / span 6;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 20px;
+    }
+    .card {
+        grid-column-end: span 6;
+    }
+}
+
+.space {
+    padding: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

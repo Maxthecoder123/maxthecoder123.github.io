@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Afacad Flux", sans-serif;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
 }
 
 body {
@@ -275,7 +275,7 @@ div.section2 p {
     }
 
     h1.topbit {
-        margin-top: 400px;
+        margin-top: 590px;
     }
 
     div.section2 p {
@@ -345,6 +345,10 @@ a {
     .robot-image {
         display: none;
     }
+
+    .about-me {
+        font-size: 20px !important;
+    }
 }
 
 @media (max-width: 600px) {
@@ -357,6 +361,14 @@ a {
 
     .robot-image {
         display: none;
+    }
+
+    .about-me {
+        font-size: 15px !important;
+    }
+
+    .see-all {
+        width: 100px !important;
     }
 }
 
@@ -408,22 +420,22 @@ a {
 
 /* Specific background images */
 .card:nth-child(1):before {
-    background-image: url('Project1.png');
+    background-image: url('Projects Images/INDEX/Project1.png');
 }
 .card:nth-child(2):before {
-    background-image: url('Project2.png');
+    background-image: url('Projects Images/INDEX/Project2.png');
 }
 .card:nth-child(3):before {
-    background-image: url('Project3.png');
+    background-image: url('Projects Images/INDEX/Project3.png');
 }
 .card:nth-child(4):before {
-    background-image: url('Project4.png');
+    background-image: url('Projects Images/INDEX/Project4.png');
 }
 .card:nth-child(5):before {
-    background-image: url('Project5.png');
+    background-image: url('Projects Images/INDEX/Project5.png');
 }
 .card:nth-child(6):before {
-    background-image: url('Project6.png');
+    background-image: url('Projects Images/INDEX/Project6.png');
 }
 
 .content {
@@ -552,7 +564,7 @@ a {
     margin-left: auto; /* Center alignment */
     margin-right: auto; /* Center alignment */
     padding: 0 20px;
-    font-size: 2.2vw;
+    font-size: 25px;
     animation: float 3s ease-in-out infinite;
 }
 
