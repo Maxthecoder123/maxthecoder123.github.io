@@ -3,8 +3,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #232941;
-    border-bottom: 3px solid #31eeb9;
+    background-color: #000;
     position: fixed;
     top: 0; /* Keep the header fixed at the top */
     width: 100%;
@@ -82,8 +81,9 @@ header {
 
 .navbuttons button {
     padding: 10px 20px;
-    background-color: #31eeb9;
-    color: #000;
+    background-color: #0f33ff;
+    font-weight: bold;
+    color: white;
     border: none; /* Ensure no borders */
     cursor: pointer;
     font-size: 15px;
@@ -91,7 +91,6 @@ header {
 }
 
 .navbuttons button:hover {
-    background-color: #03b885;
     transform: scale(1.1);
 }
 
@@ -103,7 +102,7 @@ header {
 }
 
 body {
-    background-color: #122529;
+    background-color: #000;
 }
 
 main {
@@ -132,10 +131,10 @@ main {
     grid-column-end: span 4;
     display: flex;
     flex-direction: column;
-    background-color: #232941;
+    background-color: #0c0c0c;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    border-radius: 10px;
+    border: 2px solid #0f33ff;
 }
 
 .card:hover {
@@ -147,8 +146,6 @@ main {
     padding-top: 56.25%;
     overflow: hidden;
     position: relative;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
 
 .card__image-container img {
@@ -175,9 +172,9 @@ main {
 
 .card__price {
     display: inline-block;
-    background-color: #31eeb9;
+    background-color: #0f33ff;
     border-radius: 20px;
-    color: black;
+    color: white;
     padding: 5px 20px;
     text-align: center;
     text-decoration: none;
@@ -186,7 +183,7 @@ main {
 }
 
 .card__price:hover {
-    background-color: #03b885;
+    background-color: #4662ff;
     transform: scale(1.1);
 }
 
